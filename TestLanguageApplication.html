@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="width=device-width, height=device-height, initial-scale=1" name="viewport">
+        <link href="css/normalize.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <script src="jquery-3.5.0.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <div class="container">
+
+                <div class = "col1">
+                    <h2>Users in database</h2>
+                    <br><div id="printUsers"></div>
+                </div>
+
+                <div class = "col2">
+                    <div class="view-word-header">
+                        <h2>Words in database</h2>
+                    </div>
+                    <div class="view-word-body">
+                        <div class="word-rows-wrapper">
+                            <div class="word-row">
+                                <div class="word-column word-column-1">
+                                    <div class="word-element word-element-label"><span>ID</span></div>
+                                </div>
+                                <div class="word-column word-column-2">
+                                    <div class="word-element word-element-label"><span>Kanji</span></div>
+                                </div>
+                                <div class="word-column word-column-3">
+                                    <div class="word-element word-element-label"><span>Kana</span></div>
+                                </div>
+                                <div class="word-column word-column-4">
+                                    <div class="word-element word-element-label"><span>Rōmaji</span></div>
+                                </div>
+                                <div class="word-column word-column-5">
+                                    <div class="word-element word-element-label"><span>Translation</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "col3">
+                    <h2>Kanji in database</h2>
+                    <br><div id="printKanji"></div>
+                </div>
+
+            </div>
+
+            <div class="container">
+                <div class = col1>
+                    <h2>Add single User</h2>
+                    <br><form>
+                        <br>
+                        <label for="firstName">First name:</label>
+                        <input type="text" id="firstName">
+                        <br>
+                        <label for="lastName">Last name:</label>
+                        <input type="text" id="lastName">
+                        <br>
+                        <label for="dateOfBirth">Date of birth:</label>
+                        <input type="text" id="dateOfBirth">
+                        <br>
+                        <label for="email">Email:</label>
+                        <input type="text" id="email">
+                        <br>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username">
+                        <br>
+                        <label for="password">Password:</label>
+                        <input type="text" id="password">
+                        <br>
+                        <input type="button" value="Add User to database"  onclick="addUserToDatabase()">
+                        <br>
+                        <div id="testDivje"></div>
+                        <br>
+                        <input type="text" id="userInputEditSingleUser">
+                        <br>
+                        <button onclick="editSingleUser()">Edit User with this ID</button>
+                    </form>
+                </div>
+
+                <div class = col2>
+                    <h2>Add single Word</h2>
+                    <button id="add-word-modal-box-button">Open Modal</button>
+                    <button id="add-sentence-modal-box-button">Open Modal</button>
+                </div>
+
+                <div class = col3>
+                    <h2>Add single Kanji</h2>
+                    <br><form>
+                        <br><label for="kanjiReading2">Character:</label>
+                        <input type="text" id="kanjiReading2">
+                    
+                        <br><label for="kunyomi">Kun-yomi:</label>
+                        <input type="text" id="kunyomi">
+
+                        <br><label for="onyomi">On-yomi:</label>
+                        <input type="text" id="onyomi">
+
+                        <br><label for="kanjiTranslation">Translation:</label>
+                        <input type="text" id="kanjiTranslation">
+
+                        <br><label for="kanjiOtherForms">Other forms:</label>
+                        <input type="text" id="kanjiOtherForms">
+
+                        <br><label for="isJoyoKanji">Joyo Kanji:</label>
+                        <input type="text" id="isJoyoKanji">
+
+                        <br><label for="kanjiJlptLevel">JLPT Level:</label>
+                        <input type="text" id="kanjiJlptLevel">
+
+                        <br><input type="button" value="Add Kanji to database"  onclick="addKanjiToDatabase()">
+                        <br><div id="testDivKanji"></div>
+                        <br>
+                        <input type="text" id="userInputEditSingleKanji">
+                        <br>
+                        <button onclick="editSingleKanji()">Edit Kanji with this ID</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <div class = "col1">
+                    <h2>View single User</h2>
+                    <br>
+                    <input type="text" id="loadSingleUser">
+                    <br>
+                    <button onclick="loadSingleUser()">View User with this ID</button>
+                    <br>
+                    <div id="printSingleUser"></div>
+                </div>
+
+                <div class = "col2">
+                    <h2>View single Word</h2>
+                    <br>
+                    <input type="text" id="loadSingleWord">
+                    <br>
+                    <button onclick="loadSingleWord()">View Word with this ID</button>
+                    <br>
+                    <div id="printSingleWord"></div>
+                </div>
+
+                <div class = "col3">
+                    <h2>View single Kanji</h2>
+                    <br>
+                    <input type="text" id="loadSingleKanji">
+                    <br>
+                    <button onclick="loadSingleKanji()">View Kanji with this ID</button>
+                    <br>
+                    <div id="printSingleKanji"></div>
+                </div>
+
+            </div>
+
+            
+            <div class="container">
+
+                <div class = "col1">
+                    <h2>Delete single User</h2>
+                    <br>
+                    <input type="text" id="userInputDeleteSingleUser">
+                    <br>
+                    <button onclick="deleteSingleUser()">Delete User with this ID</button>
+                </div>
+
+                <div class = "col2">
+                    <h2>Delete single Word</h2>
+                    <br>
+                    <input type="text" id="userInputDeleteSingleWord">
+                    <br>
+                    <button onclick="deleteSingleWord()">Delete Word with this ID</button>
+                </div>
+
+                <div class = "col3">
+                    <h2>Delete single Kanji</h2>
+                    <br>
+                    <input type="text" id="userInputDeleteSingleKanji">
+                    <br>
+                    <button onclick="deleteSingleKanji()">Delete Kanji with this ID</button>
+                </div>
+
+            </div>
+
+            <div class="container">
+
+                <div class = col1>
+                    <h2>Edit single User</h2>
+                    <br>
+                    <form></form>
+                </div>
+
+                <div class = col2>
+                    <h2>Edit single Word</h2>
+                    <br>
+                    <form id="edit-word-form"></form>
+                </div>
+
+                <div class = col3>
+                    <h2>Edit single Kanji</h2>
+                    <br>
+                    <form></form>
+                </div>
+
+            </div>
+
+
+<!-- TODO: woord opsplitsen in kanji en kana, furigana en kanji samen in een div -->
+            <div class="container">
+                <div class = col1>
+                    <h2>Furigana test</h2>
+                    <br>
+                    <div class="sentence-wrapper">
+                        <div class="single-word">
+                            <div class="single-word-kanji">
+                                <div class="furigana"><span>にほんご</span></div>
+                                <div class="word-extraction"><span>日本語</span></div>
+                            </div>
+                        </div>
+                        <div class="single-word">
+                            <div class="single-word-kana">
+                                <div class="furigana"><span></span></div>
+                                <div class="word-extraction"><span>を</span></div>
+                            </div>
+                        </div>
+                        <div class="single-word">
+                            <div class="single-word-kanji">
+                                <div class="furigana"><span>まな</span></div>
+                                <div class="word-extraction"><span>学</span></div>
+                            </div>
+                            <div class="single-word-kana">
+                                <div class="furigana"><span></span></div>
+                                <div class="word-extraction"><span>びたい</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = col2>
+                    <div id="testDiv" class="sentence-wrapper">
+                        <div class="single-word">
+                            <div class="single-word-kanji">
+                                <div class="furigana"><span></span></div>
+                                <div class="word-extraction"><span></span></div>
+                            </div>
+                            <div class="single-word-kana">
+                                <div class="furigana"><span></span></div>
+                                <div class="word-extraction"><span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = col3>
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- Modal Boxes -->
+        <!-- ADD-WORD-MODAL-BOX -->
+        <div id="add-word-modal-box" class="modal-box">
+            <div class="modal-box-content-wrapper">
+                <div class="modal-box-header">
+                    <h2>Add new word</h2>
+                    <span class="close-button modal-box-button"><i class="fas fa-times"></i></span>
+                </div>
+                <div class="modal-box-body">
+                    <form id="form-add-word" name="form-add-word" class="modal-box-form">
+                        <div class="form-columns-wrapper">
+                            <div class="form-column">
+                                <div class ="form-element-wrapper">
+                                    <div class="form-element">
+                                        <label for="add-word-kanji-reading" class="form-label">Kanji</label>
+                                        <div class="input-field-wrapper">
+                                            <input type="text" id="add-word-kanji-reading" name="add-word-kanji-reading" class="text-field text-field-small" maxlength="256">
+                                            <span class ="undo-button modal-box-button"><i class="fas fa-undo-alt"></i></span>
+                                        </div>
+                                        <span class="check-icon modal-box-icon"><i class="fas fa-check"></i></span>
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="add-word-hiragana-reading" class="form-label">Hiragana</label>
+                                        <div class="input-field-wrapper">
+                                            <input type="text" id="add-word-hiragana-reading" name="add-word-hiragana-reading" class="text-field text-field-small" maxlength="256">
+                                            <span class ="undo-button modal-box-button"><i class="fas fa-undo-alt"></i></span>
+                                        </div>
+                                        <span class="check-icon modal-box-icon"><i class="fas fa-check"></i></span>
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="add-word-katakana-reading" class="form-label">Katakana</label>
+                                        <div class="input-field-wrapper">
+                                            <input type="text" id="add-word-katakana-reading" name="add-word-katakana-reading" class="text-field text-field-small" maxlength="256">
+                                            <span class ="undo-button modal-box-button"><i class="fas fa-undo-alt"></i></span>
+                                        </div>
+                                        <span class="check-icon modal-box-icon"><i class="fas fa-check"></i></span>
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="add-word-romaji-reading" class="form-label">Rōmaji</label>
+                                        <div class="input-field-wrapper">
+                                            <input type="text" id="add-word-romaji-reading" name="add-word-romaji-reading" class="text-field text-field-small" maxlength="256" disabled="true">
+                                            <span class ="undo-button modal-box-button"><i class="fas fa-undo-alt"></i></span>
+                                        </div>
+                                        <span class="change-button modal-box-button"><i class="fas fa-arrow-down"></i></span>
+                                    </div>
+                                    <div class="form-element">
+                                        <label class="form-label"></label>
+                                        <div class="input-field-wrapper">
+                                            <div class="text-field text-field-small">
+                                                <div id="romaji-button-container" class="flex-container">
+                                                    <input type="button" id="romaji-a-lower" class="button-small modal-box-button" value="ā">
+                                                    <input type="button" id="romaji-i-lower" class="button-small modal-box-button" value="ī">
+                                                    <input type="button" id="romaji-u-lower" class="button-small modal-box-button" value="ū">
+                                                    <input type="button" id="romaji-e-lower" class="button-small modal-box-button" value="ē">
+                                                    <input type="button" id="romaji-o-lower" class="button-small modal-box-button" value="ō">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="switch-button modal-box-button">&#8645</span>
+                                    </div>
+                                </div>
+                                <div class="form-element-wrapper">
+                                    <div class="form-element">
+                                        <label for="add-word-part-of-speech" class="form-label">Part of Speech</label>
+                                        <div class="input-field-wrapper">
+                                            <select id="add-word-part-of-speech" name="add-word-part-of-speech" class="select-field select-field-small">
+                                                <option value="none" selected disabled hidden>Select an Option</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="add-word-jlpt-level" class="form-label">JLPT Level</label>
+                                        <div class="input-field-wrapper">
+                                            <select id="add-word-jlpt-level" name="add-word-jlpt-level" class="select-field select-field-small">
+                                                <option value="none" selected disabled hidden>Select an Option</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-column">
+                                <div id="add-word-translation" class="form-element-wrapper">
+                                    <div class="form-element">
+                                        <label class="form-label">Translation</label>
+                                        <div class="input-field-wrapper">
+                                            <input type="text" class="text-field text-field-small" maxlength="256">
+                                            <span class ="undo-button modal-box-button"><i class="fas fa-undo-alt"></i></span>
+                                        </div>
+                                        <span class="add-button modal-box-button"><i class="fas fa-plus"></i></span>
+                                    </div>
+                                </div>
+                                <div id="add-word-other-forms" class="form-element-wrapper">
+                                    <div class="form-element">
+                                        <label class="form-label">Other Forms</label>
+                                        <div class="input-field-wrapper">
+                                            <input type="text" class="text-field text-field-small" maxlength="256">
+                                            <span class ="undo-button modal-box-button"><i class="fas fa-undo-alt"></i></span>
+                                        </div>
+                                        <span class="add-button modal-box-button"><i class="fas fa-plus"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-box-footer">
+                    <div class="form-columns-wrapper">
+                        <div class="form-column">
+                            <div class="form-element-wrapper">
+                                <div class="form-element">
+                                    <div class="modal-box-form-button-wrapper">
+                                        <label for="add-word-submit-button" class="form-label">Add word</label>
+                                        <input type="button" id="add-word-submit-button" name="add-word-submit-button" class="text-field text-field-small" value="Submit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-column">
+                            <div class="form-element-wrapper">
+                                <div class="form-element">
+                                    <div id="add-word-console-output" class="console-output">
+                                        <span>Response:</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADD-SENTENCE-MODAL-BOX -->
+        <div id="add-sentence-modal-box" class="modal-box">
+            <div class="modal-box-content-wrapper">
+                <div class="modal-box-header">
+                    <h2>Add new sentence</h2>
+                    <span class="close-button modal-box-button"><i class="fas fa-times"></i></span>
+                </div>
+                <div class="modal-box-body">
+                    <form id="form-add-sentence" name="form-add-sentence" class="modal-box-form">
+                        <div class="form-columns-wrapper">
+                            <div class="form-column">
+                                <div class ="form-element-wrapper">
+                                    <div class="form-element">
+                                        <label for="add-character-string" class="form-label">Sentence</label>
+                                        <div class="input-field-wrapper">
+                                            <input type="text" id="add-character-string" name="add-character-string" class="text-field text-field-large" maxlength="256">
+                                            <span class ="undo-button modal-box-button"><i class="fas fa-undo-alt"></i></span>
+                                        </div>
+                                        <span class="change-button modal-box-button"><i class="fas fa-arrow-down"></i></span>
+                                    </div>
+                                </div>
+                                <div class ="form-element-wrapper">
+                                    <div class="form-element">
+                                        <label for="add-furigana" class="form-label">Furigana</label>
+                                        <div class="input-field-wrapper">
+                                            <input type="text" id="add-character-string" name="add-character-string" class="text-field text-field-large" maxlength="256">
+                                            <span class ="undo-button modal-box-button"><i class="fas fa-undo-alt"></i></span>
+                                        </div>
+                                        <span class="change-button modal-box-button"><i class="fas fa-arrow-down"></i></span>
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="element-selection" class="form-label">Elements</label>
+                                        <div class="input-field-wrapper">
+                                            <div id="element-selection" class="text-field-large">
+                                                <p>hallo</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class ="form-element-wrapper">
+                                    <div class="form-element">
+                                        <label for="add-character-string" class="form-label">Add Furigana</label>
+                                        <div class="input-field-wrapper">
+                                            <input type="text" id="add-character-string" name="add-character-string" class="text-field text-field-large" maxlength="256">
+                                            <span class ="undo-button modal-box-button"><i class="fas fa-undo-alt"></i></span>
+                                        </div>
+                                        <span class="change-button modal-box-button"><i class="fas fa-arrow-down"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-box-footer">
+                    <div class="form-columns-wrapper">
+                        <div class="form-column">
+                            <div class="form-element-wrapper">
+                                <div class="form-element">
+                                    <div class="modal-box-form-button-wrapper">
+                                        <label for="add-word-submit-button" class="form-label">Add word</label>
+                                        <input type="button" id="add-word-submit-button" name="add-word-submit-button" class="text-field text-field-small" value="Submit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-column">
+                            <div class="form-element-wrapper">
+                                <div class="form-element">
+                                    <div id="add-word-console-output" class="console-output">
+                                        <span>Response:</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="users.js"></script>
+        <script src="words.js"></script>
+        <script src="kanji.js"></script>
+        <script src="sentence.js"></script>
+
+        <script>
+            window.onload = function() {
+                // getWordsFromString("水を飲みたい");
+                loadAllUsers();
+                loadAllWords();
+                loadAllKanji();
+                // loadEnumsPartOfSpeech("#add-word-part-of-speech");
+                // loadEnumsJlptLevel("#add-word-jlpt-level");
+            }
+        </script>
+    </body>
+</html>

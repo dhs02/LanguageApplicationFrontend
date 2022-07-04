@@ -1,0 +1,381 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 0px;
+    font-family: 'Work Sans', 'sans-serif';
+    background-color: #ececec;
+    font-size: 12px;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.col1, .col2, .col3 {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+}
+
+label {
+     display: inline-block;
+     width: 35%;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+ul {
+    display: block;
+    /* list-style-type: decimal; */
+}
+
+li {
+    list-style: none;
+}
+
+/* The Modal (background) */
+.modal-box {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    cursor: default;
+    display: none; /* Hidden by default */
+    height: 100%; /* Full height */
+    left: 0;
+    overflow: auto; /* Enable scroll if needed */
+    padding-top: 100px;
+    position: fixed; /* Stay in place */
+    top: 0;
+    width: 100%; /* Full width */
+    z-index: 1; /* Sit on top */
+}
+
+/* Modal Content */
+.modal-box-content-wrapper {
+    background-color: #fefefe;
+    border-radius: 10px;
+    font-family: 'Work Sans', 'sans-serif';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    height: auto;
+    margin: auto;
+    min-width: 316px;
+    max-width: 620px;
+    /* padding: 5px; */
+    position: relative;
+    width: auto;
+}
+
+.modal-box-header {
+    border-bottom: 1px solid #aaaaaa;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 1.5px 5px rgb(236, 236, 236);
+    padding: 10px 0;
+    text-align: center;
+}
+
+.modal-box-header h2 {
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.modal-box-body {
+    border-bottom: 1px solid #aaaaaa;
+    box-shadow: 0 1.5px 5px rgb(236, 236, 236);
+    padding: 0 5px;
+}
+
+.modal-box-footer {
+    padding: 0 5px;
+}
+
+.form-columns-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-column {
+    flex: 1;
+}
+
+.form-element-wrapper {
+    background-color: rgb(236, 236, 236);
+    border-radius: 7.5px;
+    border-style: none;
+    margin: 10px 5px;
+    padding: 5px;
+}
+
+.form-element {
+    margin: 4px;
+}
+
+.form-element .form-label {
+    font-weight: 400;
+    text-transform: uppercase;
+    width: 110px;
+}
+
+.form-label::first-letter {
+    font-weight: 500;
+}
+
+.form-element .input-field-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.form-element .text-field,
+.form-element .select-field {
+    cursor: default;
+    display: inline-block;
+    height: 22.5px;
+    line-height: 22.5px;
+}
+
+.form-element .text-field-small,
+.form-element .select-field-small {
+    width: 140px;
+}
+
+input.text-field {
+    padding-left: 2.5px;
+}
+
+.form-element .text-field-large {
+    width: 444px;
+}
+
+
+.form-element .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #aaaaaa;
+}
+
+.form-element .button-small {
+    border-style: none;
+    flex-grow: 1;
+    min-width: 20%;
+    background-color: white;
+    height: 22.5px;
+    line-height: 22.5px;
+}
+.form-element .button-small:not(:last-child) {
+    border-right: 1px solid #aaaaaa;
+}
+
+.form-element .modal-box-form-button-wrapper input {
+    font-size: 1em;
+}
+
+.form-element .console-output span {
+    vertical-align: middle;
+}
+
+span.red {
+    color: red;
+}
+
+span.green {
+    color: green;
+}
+
+/* BUTTONS & ICONS */
+span.modal-box-button,
+span.modal-box-icon {
+    color: #aaaaaa;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+}
+
+span.modal-box-button:hover,
+span.modal-box-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+span.add-button,
+span.change-button,
+span.delete-button,
+span.switch-button,
+span.check-icon {
+    padding-left: 6.5px;
+}
+
+span.check-icon {
+    color: #4eca5f;
+    opacity: 0;
+}
+
+span.close-button {
+    font-size: 1.5em;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+span.undo-button {
+    display: none;
+    position: absolute;
+    right: 1.5px;
+    top: 1.5px;
+    width: 20px;
+}
+
+/* Load Words */
+.word-rows-wrapper {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.word-row {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    background: #eee;
+    background-color: white;
+    padding: 1.5px;
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.word-row:not(:last-child) {
+    border-bottom: 1px solid #aaaaaa;
+    box-shadow: 0 1.5px 5px rgb(236, 236, 236);
+}
+
+.word-column {
+    display: flex;
+    padding: 2px;
+}
+
+.word-column-id .word-element {
+    text-align: center;
+}
+
+.word-element {
+    flex: 1;
+    background-color: #ececec;
+    /* border-radius: 5px; */
+    padding: 5px;
+    white-space: nowrap;
+
+}
+
+.word-element-label {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.word-element-label::first-letter {
+    font-weight: 600;
+}
+
+.word-element li:first-child ~ li {
+    margin-top: 5px;
+}
+
+.word-element span {
+    vertical-align: baseline;
+}
+
+
+
+
+/* TEST */
+#element-selection {
+    padding-top: 5px;
+}
+
+/* #element-selection p {
+    display: inline-block;
+} */
+
+.sentence-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.single-word {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    margin: 2.5px;
+}
+
+.single-word-kanji,
+.single-word-kana {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.furigana,
+.word-extraction {
+    display: inline-block;
+}
+
+.word-extraction {
+    padding-top: 5px;
+}
+
+.furigana span {
+    display: block;
+    font-size: 1em;
+    text-align: center;
+    /* width: 100%; */
+    white-space: nowrap;
+    /* width: auto; */
+}
+
+/* Make div take up space */
+.furigana span:after {
+    content: '.';
+    visibility: hidden;
+}
+
+.word-extraction span {
+    font-size: 2em;
+    white-space: nowrap;
+}
+
+
+
+@media screen and (max-width: 640px) {
+    .form-columns-wrapper {
+        flex-direction: column;
+    }
+    /* .form-column {
+        border-bottom: 1px solid black;
+    } */
+
+
+    .form-element .text-field-large {
+        width: 140px;
+    }
+
+
+
+    .modal-box-content-wrapper {
+        width: 316px;
+    }
+}
